@@ -1,2 +1,1 @@
-# devops-netology
-my devops repo
+new line
