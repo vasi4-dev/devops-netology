@@ -9,3 +9,4 @@ new line
 #файлы, описывающие конфигурацию командной строки terraform
 
 new line yopta
+new line again
