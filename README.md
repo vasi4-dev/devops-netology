@@ -1,69 +1,56 @@
+## **DZ Terraform - 1**
 
-## **DZ  Virtualization  - 4**
+## Задача 1
 
+### ЗАДАЧА 1.1.
 
-### ЗАДАЧА 1
+![terraform  1 output](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-1-1.PNG?raw=true)
 
-![Мой образ centos](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/dz%20-%20image.PNG?raw=true)
+### ЗАДАЧА 1.2.
 
-### ЗАДАЧА 2
+в файле personal.auto.tfvars допустимо
 
-![Yandex Cloud GUI](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/dz%20-%203-2.PNG?raw=true)
+### ЗАДАЧА 1.3.
 
-![Yandex Cloud GUI](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/dz%20-%203-2.PNG?raw=true)
+`"result":  "a3Pf2uno81SPUkf3"`
 
+![terraform 2 output](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-1-3.PNG?raw=true)
 
-![Yandex Cloud GUI](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/dz%20-%203-3.PNG?raw=true)
+### ЗАДАЧА 1.4.
 
+- Error: Missing name for resource
+  пропущено имя ресурса образа "nginx"
 
+- Error: Invalid resource name
+  ошибка в имени ресурса - некорректное название ресурса контейнера с цифры
 
+* Reference to undeclared resource - опечатка (FAKE) при создании контейнера. исправлено на:
 
-![Terraform Apply](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/Terraform%20Apply%201.PNG?raw=true)
+  <code> name = "example\_${random_password.random_string.result}" </code>
 
-![Terraform Apply](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/Terraform%20Apply%202.PNG?raw=true)
-![Terraform Apply](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/Terraform%20Apply%203.PNG?raw=true)
-![Terraform Apply](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/Terraform%20Apply%205.PNG?raw=true)
+### ЗАДАЧА 1.5.
 
-### ЗАДАЧА 3
+![docker ps](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-dockerps-%201-5.PNG?raw=true)
+![fixed code](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-1-5-code_fixed.PNG?raw=true)
 
+### ЗАДАЧА 1.6.
 
-![docker ps](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/docker%20ps.PNG?raw=true)
+`terraform apply --auto-approve` избавляет нас от необходимости набирать yes для применения terraform plan + terraform apply. после команды пересоздался контейнер из-за того, что мы поменяли ему имя в атрибуте name. Опасность ключа --auto-approve в том, что изменения применяются автоматически, пропускается стадия их одобрения человеком. и контейнеры в среде "production" просто рестартанут, добавив задержки доступности и убытков бизнесу просто из-за лишнего символа в изменённом .tf файле в атрибуте name (с применённом ключом `apply --auto-approve`)
 
+![docker ps](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-dockerps-%201-6.PNG?raw=true)
 
+### ЗАДАЧА 1.7.
 
+![terraform_state](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/terraform-state-1-7.PNG?raw=true)
 
-### ЗАДАЧА 4  
+### ЗАДАЧА 1.8.
 
-![grafana web](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/dz%20-%204.PNG?raw=true)
+> keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
 
-### ЗАДАЧА 5
-Бился, бился. так и не смог сделать задачу №5. не хочет работать никак.
+При выставлении атрибута `keep_locally ` со значением `true` при удалении ресурса / даты terraform не тронет образ docker'a, скачанный им локально на хост из его хранилища (т.е. удалит только свой объект). Он выставлен в блоке кода в .tf, описывающий ресурc image - соотв. сам образ не был удалён локально.
 
-Что сделал:
- - условно назвал worker вторую вм (мониторинг которой надо подключить к первой вм по заданию.) 
- - создал второй плейбук для настройки worker (идентичный provision.yml только для hosts worker)
- - создал второй docker-compose для настройки worker (идентичный первому, только из сервисов оставлены только nodeexporter, cadvisor и caddy (на всякий), потому что больше для наблюдаемой ноды поднимать не надо ничего)
- - соответственно указал в конце worker плейбука  в  команде docker-compose -f  ссылку на второй docker-compose файл для worker. 
- - расширил конфиг в prometheus дополнительным ip:port (worker вм)
- - после того как ничего не получилось, попытался создать таски для создания отдельно nodeexporter и cadvisor  с параметром provisioned_ports. Ругается на версию библиотеки python (хотя создавал перед этим спец таску в provision для worker по установке epel-release  python3 python3-pip ) . Python2  - та же самая ошибка. интерпретатор пайтона в файле inventory тоже результатов не дал. не понимаю тотально, какая всё-таки библиотека нужна и как её указать. 
+## Задача 2
 
-
-таким образом, вывод docker ps на задаче 4  после запуска второй вм равнялся выводу докера, ни одного контейнера не видно.
-Публикую Скрины: 
-
-
-![error](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/error%20host.PNG?raw=true)
-'error host.PNG' 
-- вывод ошибки при попытке поднятия 2 compose файлов с режимом сети host
-
-
-![scrape](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/scrape_config.PNG?raw=true)
-
-- снимок scrape config для job нодэкспортера и cadvisor (в файле prometheus.yml)
-
-![python](https://github.com/vasi4-dev/devops-netology/blob/main/snips_dz/python-error.PNG?raw=true)
-
- - 'python error.PNG'  - ошибка библиотеки python при попытке запустить ролью \ таской в yml  nodeexporter и cadvisor.
-
-Контейнеры для второй вм не стартуют и не отображаются при docker ps (хотя я их даже назвал в compose для worker по другому).
-Очень много сжёг облака, пока тестировал обе вм, потому что никак не могу настроить worker локальные вм попрактиковаться через hyper-v. Просто кошмар. очень расстраивает потеря времени впустую
+не удалось сделать, так как бесконечное "создание" вм провайдером.
+Still creating.... до истечения таймаута. Это при "eth0" host_interface. При любых других пишет, что ошибка в имени host_INTERface, в документации о нём нет ничего.  
+Попытаюсь сделать с провайдером terra-farm....
