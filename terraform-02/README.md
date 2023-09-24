@@ -2,10 +2,10 @@
 
 ## Задача 1
 
-![скриншот ВМ с Яндекса GUI]()
-![скриншот ВМ с Яндекса 2]()
+![скриншот ВМ с Яндекса GUI](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-VM1.PNG?raw=true)
+![скриншот ВМ с Яндекса 2](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-VM1-1.PNG?raw=true)
 
-![скриншот ssh подключения]()
+![скриншот ssh подключения](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf_ssh_connection.PNG?raw=true)
 
 Опечатка была в id платформы platform_id : правильно <code>
 "standard-v1" </code>
@@ -21,27 +21,27 @@
 ## Задача 2
 
 Без изменений:
-![No changes - terraform]()
+![No changes - terraform](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf_no_changes_1.PNG?raw=true)
 
 ## Задача 3
 
 Вторая ВМ:
-![second vm]()
-![second vm2 ]()
+![second vm](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-vm2.PNG?raw=true)
+![second vm2 ](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-vm2-2.PNG?raw=true)
 
 ## Задача 4
 
-![output]()
+![output](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-output.PNG?raw=true)
 
 ## Задача 5
 
 Скриншот кода:
-![local]()
+![local](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-locals.PNG?raw=true)
 
 ## Задача 6
 
 Без изменений:
-![No changes - terraform 2 ]()
+![No changes - terraform 2 ](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf_no_changes_2.PNG?raw=true)
 
 ## Задача 7
 
