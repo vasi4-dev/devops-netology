@@ -46,6 +46,8 @@
 ## Задача 7
 
 - <code>local.test_list.1</code>
-- <code>3</code>
+- <code>length(local.servers.stage.disks)</code>
 - <code>local.test_map.admin</code>
-- <code>John is admin for production server based on OS ${local.servers.stage.image} with ${local.servers.stage.cpu} cpu, ${local.servers.stage.ram} ram and ${length(local.servers.stage.disks)} virtual disks></code>
+- <code>"John is admin for production server based on OS ${local.servers.stage.image} with ${local.servers.stage.cpu} cpu, ${local.servers.stage.ram} ram and ${length(local.servers.stage.disks)} virtual disks"</code>
+
+![вывод](https://github.com/vasi4-dev/devops-netology/blob/terraform-02/terraform-02/dz_screenshots/tf-console.PNG?raw=true)
