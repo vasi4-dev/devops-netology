@@ -1,14 +1,16 @@
 ---
-- src: https://github.com/AlexeySetevoi/ansible-clickhouse.git
+- src: https://github.com/AlexeySetevoi/ansible-clickhouse.git ## пришлось заменить на https так как не клонировалось
   scm: git
   version: "1.13"
   name: clickhouse
-#- src:
-#  scm: git
-#  version: "1.0"
-#  name: lighthouse
+- src: git@github.com:vasi4-dev/lighthouse-role.git
+  #src: https://github.com/vasi4-dev/lighthouse-role.git # на случай, если понадобится
+  scm: git
+  version: "1.4"
+  name: lighthouse
 
-#- src:
-##  scm: git
-#  version: "1.0"
-#  name: vector
+- src: git@github.com:vasi4-dev/vector-role.git
+  #src: https://github.com/vasi4-dev/lighthouse-role.git # на случай, если понадобится
+  scm: git
+  version: "1.1"
+  name: vector
