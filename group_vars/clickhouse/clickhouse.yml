@@ -1,0 +1,6 @@
+---
+clickhouse_user_custom:
+  logger:
+    password: logger
+    networks:
+      - 62.84.112.207 ## вставьте ваш ip с машиной Clickhouse

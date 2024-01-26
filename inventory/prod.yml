@@ -1,0 +1,21 @@
+---
+clickhouse:
+  hosts:
+    develop-web-0:
+      ansible_host: 62.84.112.207 ## вставьте ваш ip с машиной для Clickhouse
+      #ansible_user: ubuntu
+      ansible_user: ubuntu
+      # UserKnownHostsFile: /dev/null
+      # StrictHostKeyChecking: no
+vector:
+  hosts:
+    develop-web-1:
+      ansible_host: 51.250.95.51 ## вставьте ваш ip с машиной для Vector
+      ansible_user: ubuntu
+      # UserKnownHostsFile: /dev/null
+# StrictHostKeyChecking: no
+lighthouse:
+  hosts:
+    develop-web-2:
+      ansible_host: 51.250.0.59 ## вставьте ваш ip с машиной для Lighthouse
+      ansible_user: ubuntu

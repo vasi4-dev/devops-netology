@@ -1,0 +1,14 @@
+---
+- name: Install Lighthouse ## установка Lighthouse
+  hosts: lighthouse
+  roles:
+    - lighthouse
+
+- name: Install Clickhouse ## установка Clickhouse
+  hosts: clickhouse
+  roles:
+    - clickhouse
+- name: Install Vector ## установка Vector
+  hosts: vector
+  roles:
+    - vector
